@@ -3,7 +3,7 @@
  * Plugin Name: CiviCRM Stripe Allow Promotion Codes
  * Plugin URI: https://github.com/yo61/civicrm_stripe_allow_promo_codes
  * Description: Sets allow_promotion_codes to true in StripeCheckout parameters
- * Version: 0.1.0
+ * Version: 0.2.0
  * Author: Robin Bowes
  * License: GNU Affero General Public License version 3 (AGPLv3)
  */
@@ -22,10 +22,10 @@ if (!defined('ABSPATH')) {
  */
 function civicrm_allow_promo_codes_alter_params($paymentObj, &$rawParams, &$cookedParams) {
     // Only set for Stripe Checkout payment processor
-    if (isset($paymentObj->_paymentProcessor['class_name']) &&
-        $paymentObj->_paymentProcessor['class_name'] === 'Payment_StripeCheckout') {
-        $cookedParams['allow_promotion_codes'] = true;
-    }
+    // if ($paymentObj->class_name === 'Payment_StripeCheckout') {
+    //    $cookedParams['allow_promotion_codes'] = true;
+    //}
+    $cookedParams['allow_promotion_codes'] = true;
 }
 
 // Register the hook
